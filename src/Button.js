@@ -9,9 +9,14 @@ const Button = (props) => {
     synth.speak(utter)
   }
 
+  function speakShowMessage() {
+    speak()
+    props.showMessage(props.name)
+  }
+
   return (
-    <div className="button" onClick={speak}>
-      <img src={dinner} />
+    <div className="button" onClick={speakShowMessage}>
+      <img src={dinner} alt={props.name} />
       <p className="keyword">{props.name}</p>
     </div>
   )
