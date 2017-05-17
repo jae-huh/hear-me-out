@@ -1,3 +1,7 @@
+body {
+  background-color: #FFFFEA;
+}
+
 .App {
   text-align: center;
   display: flex;
@@ -7,13 +11,15 @@
 
 .header {
   font-family: 'Pacifico', cursive;
-  font-size: 1.2em;
-  background-color: orange;
+  font-size: 1em;
+  background-color: #FFE66D;
   width: 100%;
+  text-align: left;
 }
 
 .header > h1 {
-  margin: 0.3em;
+  margin: 0 0 0 1em;
+  color: #1A535C;
 }
 
 .button-container {

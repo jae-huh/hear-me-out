@@ -7,9 +7,10 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      message: "msg"
+      message: "Choose a category"
     }
     this.showMessage = this.showMessage.bind(this)
+    this.generateButtons = this.generateButtons.bind(this)
   }
 
   showMessage (msg) {
@@ -19,7 +20,14 @@ class App extends React.Component {
   }
 
 
-  // have an array of buttons and loop through it to generate multiple of them
+  generateButtons() {
+    const categories = ["Small Talk", "Question", "Food", "Pain", "Need", "Place", "Person"]
+    return categories.map((item) => {
+      return (<Button name={item} showMessage={this.showMessage}/>)
+    })
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -28,13 +36,7 @@ class App extends React.Component {
         </div>
         <Display message={this.state.message}/>
         <div className="button-container">
-          <Button name="Small Talk" showMessage={this.showMessage} />
-          <Button name="Food" showMessage={this.showMessage} />
-          <Button name="Pain" showMessage={this.showMessage} />
-          <Button name="Need" showMessage={this.showMessage} />
-          <Button name="Place" showMessage={this.showMessage} />
-          <Button name="Question" showMessage={this.showMessage} />
-          <Button name="Person" showMessage={this.showMessage} />
+          {this.generateButtons()}
         </div>
       </div>
     )
