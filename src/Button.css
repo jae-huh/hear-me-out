@@ -1,6 +1,7 @@
 .button {
   width: 25%;
-  background-color: green;
+  background-color: #4ECDC4;
+  color: #1A535C;
   margin: 1em;
   padding: 1em 0 0 0;
   display: flex;
@@ -9,8 +10,13 @@
   align-items: center;
   border-radius: 20px;
 }
+
 .button:hover {
   cursor: pointer;
+}
+
+.btn-image {
+  width: 50%;
 }
 
 .keyword {

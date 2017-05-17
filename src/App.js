@@ -21,9 +21,17 @@ class App extends React.Component {
 
 
   generateButtons() {
-    const categories = ["Small Talk", "Question", "Food", "Pain", "Need", "Place", "Person"]
+    const categories = [
+      {msg: "Small Talk"},
+      {msg: "Question"},
+      {msg: "Food"},
+      {msg: "Pain"},
+      {msg: "Need"},
+      {msg: "Place"},
+      {msg: "Person"}
+    ]
     return categories.map((item) => {
-      return (<Button name={item} showMessage={this.showMessage}/>)
+      return (<Button name={item.msg} showMessage={this.showMessage}/>)
     })
   }
 

@@ -16,7 +16,7 @@ const Button = (props) => {
 
   return (
     <div className="button" onClick={speakShowMessage}>
-      <img src={dinner} alt={props.name} />
+      <img className="btn-image" src={dinner} alt={props.name} />
       <p className="keyword">{props.name}</p>
     </div>
   )
