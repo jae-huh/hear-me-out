@@ -1,6 +1,7 @@
 .display {
   background-color: #1A535C;
   width: 100%;
+  margin-bottom: 1.2em;
 }
 
 .display > h1 {

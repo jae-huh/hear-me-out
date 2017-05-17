@@ -1,6 +1,7 @@
 import React from 'react'
 import './Button.css'
 import dinner from '../public/images/dinner.png'
+import questionMark from '../public/images/question-mark.png'
 
 const Button = (props) => {
   const synth = window.speechSynthesis
@@ -13,6 +14,8 @@ const Button = (props) => {
     speak()
     props.showMessage(props.name)
   }
+
+  // Move generate button function from App and button container div + below
 
   return (
     <div className="button" onClick={speakShowMessage}>
