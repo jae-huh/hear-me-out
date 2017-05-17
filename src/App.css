@@ -29,3 +29,12 @@ body {
   flex-wrap: wrap;
 
 }
+
+@media (min-width: 760px) {
+  .button-conatiner {
+    width: 65%;
+  }
+  h1 {
+  color: black;
+  }
+}

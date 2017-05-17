@@ -19,7 +19,6 @@ class App extends React.Component {
     })
   }
 
-
   generateButtons() {
     const categories = [
       {msg: "Small Talk"},
@@ -34,7 +33,6 @@ class App extends React.Component {
       return (<Button name={item.msg} showMessage={this.showMessage}/>)
     })
   }
-
 
   render() {
     return (

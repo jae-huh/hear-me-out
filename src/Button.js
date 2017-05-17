@@ -1,7 +1,7 @@
 import React from 'react'
 import './Button.css'
 import dinner from '../public/images/dinner.png'
-import questionMark from '../public/images/question-mark.png'
+// import questionMark from '../public/images/question-mark.png'
 
 const Button = (props) => {
   const synth = window.speechSynthesis
