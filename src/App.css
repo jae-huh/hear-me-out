@@ -23,7 +23,7 @@ body {
 }
 
 .button-container {
-  width: 60%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -31,10 +31,8 @@ body {
 }
 
 @media (min-width: 760px) {
-  .button-conatiner {
+  .button-container {
     width: 65%;
   }
-  h1 {
-  color: black;
-  }
+
 }

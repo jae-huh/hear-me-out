@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import Button from './Button'
+import Buttons from './Buttons'
 import Display from './Display'
 
 class App extends React.Component {
@@ -10,27 +10,11 @@ class App extends React.Component {
       message: "Choose a category"
     }
     this.showMessage = this.showMessage.bind(this)
-    this.generateButtons = this.generateButtons.bind(this)
   }
 
   showMessage (msg) {
     this.setState({
       message: msg
-    })
-  }
-
-  generateButtons() {
-    const categories = [
-      {msg: "Small Talk"},
-      {msg: "Question"},
-      {msg: "Food"},
-      {msg: "Pain"},
-      {msg: "Need"},
-      {msg: "Place"},
-      {msg: "Person"}
-    ]
-    return categories.map((item) => {
-      return (<Button name={item.msg} showMessage={this.showMessage}/>)
     })
   }
 
@@ -41,9 +25,7 @@ class App extends React.Component {
           <h1>Hear Me Out</h1>
         </div>
         <Display message={this.state.message}/>
-        <div className="button-container">
-          {this.generateButtons()}
-        </div>
+        <Buttons showMessage={this.showMessage}/>
       </div>
     )
   }
