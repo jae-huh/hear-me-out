@@ -1,7 +1,4 @@
 import React from 'react'
-// import './Button.css'
-import dinner from '../public/images/dinner.png'
-// import questionMark from '../public/images/question-mark.png'
 
 const Button = (props) => {
   const synth = window.speechSynthesis
@@ -24,6 +21,3 @@ const Button = (props) => {
 }
 
 export default Button
-
-/* <img className="btn-image" src={dinner} alt={props.name} />
-<p className="keyword">{props.name}</p> */
