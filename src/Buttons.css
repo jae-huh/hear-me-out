@@ -32,6 +32,20 @@
   margin: 0.5em 0 0.8em 0;
 }
 
+.back-btn {
+  position: absolute;
+  left: -1.5em;
+  top: 3.9em;
+}
+
+.back-btn > img {
+  width: 33%;
+}
+
+.back-btn > img:hover {
+  cursor: pointer;
+}
+
 
 @media (min-width: 760px) {
   .button {
