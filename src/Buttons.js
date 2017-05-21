@@ -24,7 +24,6 @@ class Buttons extends React.Component {
   }
 
   placeBackBtn () {
-    console.log(this.state.displayData[0].type)
     if (this.state.displayData[0].type === 'category-item') {
       this.setState({
         displayData: categories
