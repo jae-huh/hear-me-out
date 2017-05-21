@@ -1,6 +1,5 @@
 .button {
   width: 42%;
-  background-color: #4ECDC4;
   color: #292F36;
   margin: 0.5em;
   padding: 1em 0 0 0;
@@ -9,6 +8,14 @@
   justify-content: center;
   align-items: center;
   border-radius: 20px;
+}
+
+.category {
+  background-color: #4ECDC4;
+}
+
+.category-item {
+  background-color: pink;
 }
 
 .button:hover {

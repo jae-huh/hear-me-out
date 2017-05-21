@@ -10,10 +10,11 @@ const Button = (props) => {
   function speakShowMessage() {
     speak()
     props.showMessage(props.msg)
+    props.changeWords(props.id)
   }
 
   return (
-    <div className="button" onClick={speakShowMessage}>
+    <div className={`button ${props.type}`} onClick={speakShowMessage}>
       <img className="btn-image" src={props.img} alt={props.msg} />
       <p className="keyword">{props.msg}</p>
     </div>

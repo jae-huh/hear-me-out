@@ -4,36 +4,45 @@ const data = [
     img: '/images/small-talk.png',
     buttons: [
       {
-        msg: 'Hello'
+        msg: 'Hello',
+        type: 'category-item'
       },
       {
-        msg: 'Goodbye'
+        msg: 'Goodbye',
+        type: 'category-item'
       }
-    ]
+    ],
+    type: 'category'
   },
   {
     msg: 'Question',
-    img: '/images/question.png'
+    img: '/images/question.png',
+    type: 'category'
   },
   {
     msg: 'Food',
-    img: '/images/dinner.png'
+    img: '/images/dinner.png',
+    type: 'category'
   },
   {
     msg: 'Pain',
-    img: '/images/pain.png'
+    img: '/images/pain.png',
+    type: 'category'
   },
   {
     msg: 'Need',
-    img: '/images/need.png'
+    img: '/images/need.png',
+    type: 'category'
   },
   {
     msg: 'Place',
-    img: '/images/place.png'
+    img: '/images/place.png',
+    type: 'category'
   },
   {
     msg: 'Person',
-    img: '/images/person.png'
+    img: '/images/person.png',
+    type: 'category'
   }
 ]
 
