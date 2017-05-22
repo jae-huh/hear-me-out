@@ -1,0 +1,16 @@
+.text-field {
+  margin: 1em;
+}
+
+.text-field > textarea {
+  font-size: 1em;
+}
+
+
+.speak-img > img {
+  width: 20%;
+}
+
+.speak-img > img:hover {
+  cursor: pointer;
+}
