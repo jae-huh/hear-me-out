@@ -5,6 +5,7 @@ import './App.css'
 import Buttons from './Buttons'
 import Display from './Display'
 import TextField from './TextField'
+import AddBoard from './AddBoard'
 
 class App extends React.Component {
   constructor (props) {
@@ -30,6 +31,7 @@ class App extends React.Component {
         <Display message={this.state.message}/>
         <Buttons showMessage={this.showMessage}/>
         <TextField />
+        <AddBoard />
       </div>
     )
   }

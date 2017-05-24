@@ -5,6 +5,7 @@ import './Buttons.css'
 import Button from './Button'
 import Back from './Back'
 import { baseUrl } from './api'
+import oldData from '../data/categories.js'
 
 class Buttons extends React.Component {
   constructor (props) {
@@ -18,8 +19,9 @@ class Buttons extends React.Component {
   }
 
   componentWillMount() {
-    fetch(baseUrl + '/data')
+    fetch(baseUrl + '/boards/default')
       .then((res) => {
+        console.log(res)
         return res.json()
       })
       .then((data) => {
@@ -31,9 +33,15 @@ class Buttons extends React.Component {
   }
 
   changeWords (item) {
-    this.setState({
-      displayData: this.state.data[item].buttons
-    })
+    if (this.state.displayData[item].type === 'category-item') {
+      this.setState({
+        displayData: this.state.data
+      })
+    } else {
+      this.setState({
+        displayData: this.state.data[item].buttons
+      })
+    }
   }
 
   placeBackBtn () {
