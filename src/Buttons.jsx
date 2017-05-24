@@ -2,37 +2,53 @@ import React from 'react'
 
 import './Buttons.css'
 
-import categories from '../data/categories'
 import Button from './Button'
 import Back from './Back'
+import { baseUrl } from './api'
 
 class Buttons extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      data: categories,
-      displayData: categories
+      data: [],
+      displayData: []
     }
     this.changeWords = this.changeWords.bind(this)
     this.placeBackBtn = this.placeBackBtn.bind(this)
   }
 
+  componentWillMount() {
+    fetch(baseUrl + '/data')
+      .then((res) => {
+        return res.json()
+      })
+      .then((data) => {
+        this.setState({
+          data: data,
+          displayData: data
+        })
+      })
+  }
+
   changeWords (item) {
     this.setState({
-      displayData: categories[item].buttons
+      displayData: this.state.data[item].buttons
     })
   }
 
   placeBackBtn () {
     if (this.state.displayData[0].type === 'category-item') {
       this.setState({
-        displayData: categories
+        displayData: this.state.data
       })
     }
   }
 
-
   render() {
+    if (this.state.displayData.length < 1) {
+      return (<div>Loading...</div>)
+    }
+
     return (
       <div className="button-container">
         {this.state.displayData[0].type === 'category-item' && <Back placeBackBtn={this.placeBackBtn} />}
