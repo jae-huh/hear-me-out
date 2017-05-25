@@ -5,7 +5,7 @@ import './Buttons.css'
 import Button from './Button'
 import Back from './Back'
 import { baseUrl } from './api'
-import oldData from '../data/categories.js'
+// import oldData from '../data/categories.js'
 
 class Buttons extends React.Component {
   constructor (props) {
@@ -21,7 +21,7 @@ class Buttons extends React.Component {
   componentWillMount() {
     fetch(baseUrl + '/boards/default')
       .then((res) => {
-        console.log(res)
+        // console.log(res)
         return res.json()
       })
       .then((data) => {
