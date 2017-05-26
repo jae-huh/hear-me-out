@@ -1,16 +1,32 @@
 .text-field {
-  margin: 1em;
+  margin: 0em;
 }
 
-.text-field > textarea {
+.text-field-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-field-main > textarea {
   font-size: 1em;
+  width: 80%;
+  margin-top: 2em;
 }
 
 
 .speak-img > img {
-  width: 20%;
+  width: 4em;
+  margin: 1em;
 }
 
 .speak-img > img:hover {
   cursor: pointer;
+}
+
+@media (min-width: 760px) {
+  .text-field-main > textarea {
+    width: 50%;
+  }
+
 }

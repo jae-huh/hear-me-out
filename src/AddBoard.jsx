@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { baseUrl } from './api'
+import Display from './Display'
 
 class AddBoard extends React.Component {
   constructor(props) {
@@ -79,6 +80,7 @@ class AddBoard extends React.Component {
   render(){
     return(
       <div>
+        <Display message={'Create a Board'} />
         <form onSubmit={this.onSubmit}>
           <input type="text" name="boardName" placeholder="Board Name" onChange={this.setBoardName} /><br />
           <input type="text" name="word" placeholder="Word" onChange={this.setWord} /><br />

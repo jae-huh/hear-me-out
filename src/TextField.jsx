@@ -2,6 +2,8 @@ import React from 'react'
 
 import './TextField.css'
 
+import Display from './Display'
+
 class TextField extends React.Component {
   constructor () {
     super()
@@ -27,9 +29,12 @@ class TextField extends React.Component {
   render() {
     return (
       <div className="text-field">
-        <textarea rows="5" cols="50" placeholder="Type your message here" value={this.state.textContent} onChange={this.handleChange}></textarea>
-        <div className="speak-img">
-          <img src="/images/speak.png" alt="speak" onClick={this.speak} />
+        <Display message={'Text to Voice'} />
+        <div className="text-field-main">
+          <textarea rows="8" cols="50" placeholder="Type your message here" value={this.state.textContent} onChange={this.handleChange}></textarea>
+          <div className="speak-img">
+            <img src="/images/speak.png" alt="speak" onClick={this.speak} />
+          </div>
         </div>
       </div>
     )
