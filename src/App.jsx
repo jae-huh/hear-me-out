@@ -1,40 +1,22 @@
 import React from 'react'
+import { HashRouter as Router, Route } from 'react-router-dom'
 
-import './App.css'
-
-import Buttons from './Buttons'
-import Display from './Display'
+import Home from './Home'
+import DefaultBoard from './DefaultBoard'
 import TextField from './TextField'
 import AddBoard from './AddBoard'
 
-class App extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      message: "Choose a category"
-    }
-    this.showMessage = this.showMessage.bind(this)
-  }
-
-  showMessage (msg) {
-    this.setState({
-      message: msg
-    })
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <div className="header">
-          <h1>Hear Me Out</h1>
-        </div>
-        <Display message={this.state.message}/>
-        <Buttons showMessage={this.showMessage}/>
-        <TextField />
-        <AddBoard />
+const App = (props) => {
+  return (
+    <Router>
+      <div>
+        <Route exact path="/" component={Home} />
+        <Route path="/default-board" component={DefaultBoard} />
+        <Route path="/text-field" component={TextField} />
+        <Route path="/add-board" component={AddBoard} />
       </div>
-    )
-  }
+    </Router>
+  )
 }
 
 export default App
