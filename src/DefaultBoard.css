@@ -1,25 +1,8 @@
-body {
-  background-color: #FFFFEA;
-}
-
 .App {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.header {
-  font-family: 'Pacifico', cursive;
-  font-size: 1em;
-  background-color: #FFE66D;
-  width: 100%;
-  text-align: left;
-}
-
-.header > h1 {
-  margin: 0 0 0 1em;
-  color: #1A535C;
 }
 
 .button-container {

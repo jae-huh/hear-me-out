@@ -4,8 +4,7 @@ import './DefaultBoard.css'
 
 import Buttons from './Buttons'
 import Display from './Display'
-import TextField from './TextField'
-import AddBoard from './AddBoard'
+
 
 
 class DefaultBoard extends React.Component {
@@ -26,13 +25,8 @@ class DefaultBoard extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="header">
-          <h1>Hear Me Out</h1>
-        </div>
         <Display message={this.state.message}/>
         <Buttons showMessage={this.showMessage}/>
-        <TextField />
-        <AddBoard />
       </div>
     )
   }
