@@ -1,0 +1,24 @@
+.add-button-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.add-board-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 1em;
+}
+
+.create-button {
+  margin: 1em;
+  width: 25%;
+}

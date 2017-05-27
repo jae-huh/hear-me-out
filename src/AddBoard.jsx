@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './AddBoard.css'
+
 import { baseUrl } from './api'
 import Display from './Display'
 
@@ -8,48 +10,41 @@ class AddBoard extends React.Component {
     super(props)
     this.state = {
       boardName: '',
+      description: '',
       buttons: [
         {
           word: '',
           imgUrl: '',
-          type: 'category'
-        }
+          type: 'category-item'
+        },
       ]
     }
 
     this.setBoardName = this.setBoardName.bind(this)
-    this.setWord = this.setWord.bind(this)
-    this.setImgUrl = this.setImgUrl.bind(this)
+    this.onButtonChange = this.onButtonChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    this.addButton = this.addButton.bind(this)
   }
 
   setBoardName(e) {
     this.setState({
       boardName: e.target.value
-    }, () => console.log(this.state))
+    })
   }
 
-  setWord(e) {
-    this.setState({
-      buttons: [
-        {
-          ...this.state.buttons[0],
-          word: e.target.value
-        }
-      ]
-    }, () => console.log(this.state))
-  }
+  onButtonChange(e, i) {
+    const name = e.target.name
+    const value = e.target.value
 
-  setImgUrl(e) {
-    console.log(this.state.buttons[0])
+    const buttons = [...this.state.buttons]
+    buttons[i] = {
+      ...buttons[i],
+      [name]: value
+    }
+
     this.setState({
-      buttons: [
-        {
-          ...this.state.buttons[0],
-          imgUrl: e.target.value
-        }
-      ]
-    }, () => console.log(this.state))
+      buttons: buttons,
+    })
   }
 
   makeBoard() {
@@ -59,13 +54,7 @@ class AddBoard extends React.Component {
       method: 'post',
       body: JSON.stringify({
         boardName: this.state.boardName,
-        buttons: [
-          {
-            word: this.state.buttons[0].word,
-            imgUrl: this.state.buttons[0].imgUrl,
-            type: 'category'
-          }
-        ]
+        buttons: this.state.buttons
       })
     })
       .then(res => res.json())
@@ -77,14 +66,37 @@ class AddBoard extends React.Component {
     this.makeBoard()
   }
 
+  addButton(e) {
+    e.preventDefault()
+    const buttons = [...this.state.buttons]
+    buttons.push({
+      word: '',
+      imgUrl: '',
+      type: 'category'
+    })
+    this.setState({
+      buttons: buttons
+    })
+  }
+
   render(){
+    console.log(this.state)
     return(
-      <div>
+      <div className="add-board">
         <Display message={'Create a Board'} />
-        <form onSubmit={this.onSubmit}>
-          <input type="text" name="boardName" placeholder="Board Name" onChange={this.setBoardName} /><br />
-          <input type="text" name="word" placeholder="Word" onChange={this.setWord} /><br />
-          <input type="text" name="imgUrl" placeholder="Image url" onChange={this.setImgUrl} /><br />
+        <form onSubmit={this.onSubmit} className="add-button-form">
+          <div className="add-board-main">
+            <input type="text" name="boardName" placeholder="Enter the name of the new board" onChange={this.setBoardName} /><br />
+            <button onClick={this.addButton}>Add a button</button>
+          </div>
+          <div className="new-buttons">
+            {this.state.buttons.map((item, i) => (
+              <div className="create-button" key={i}>
+                <input className="button-input" type="text" name="word" placeholder="Word" onChange={(e) =>  this.onButtonChange(e, i)} /><br />
+                <input className="button-input" type="text" name="imgUrl" placeholder="Image url" onChange={(e) => this.onButtonChange(e, i)} /><br />
+              </div>
+            ))}
+          </div>
           <input type="submit" name="submit" value="Make a board" />
         </form>
       </div>

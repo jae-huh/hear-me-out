@@ -18,10 +18,25 @@ class Buttons extends React.Component {
     this.placeBackBtn = this.placeBackBtn.bind(this)
   }
 
+  // componentWillMount() {
+  //   fetch(baseUrl + '/boards/default')
+  //     .then((res) => {
+  //       // console.log(res)
+  //       return res.json()
+  //     })
+  //     .then((data) => {
+  //       this.setState({
+  //         data: data,
+  //         displayData: data
+  //       })
+  //     })
+  // }
+
   componentWillMount() {
-    fetch(baseUrl + '/boards/default')
+    // console.log(this.props)
+    const id = this.props.id
+    fetch(`${baseUrl}/boards/${id}`)
       .then((res) => {
-        // console.log(res)
         return res.json()
       })
       .then((data) => {
@@ -53,14 +68,15 @@ class Buttons extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     if (this.state.displayData.length < 1) {
       return (<div>Loading...</div>)
     }
 
     return (
       <div className="button-container">
-        {this.state.displayData[0].type === 'category-item' && <Back placeBackBtn={this.placeBackBtn} />}
-        {this.state.displayData.map((item, i) => <Button msg={item.msg} img={item.img} showMessage={this.props.showMessage} changeWords={this.changeWords} id={i} type={item.type} key={item.msg} />)}
+        {this.props.id === 'default' && this.state.displayData[0].type === 'category-item' && <Back placeBackBtn={this.placeBackBtn} />}
+        {this.state.displayData.map((item, i) => <Button msg={item.word} img={item.imgUrl} showMessage={this.props.showMessage} changeWords={this.changeWords} id={i} type={item.type} key={item.word} />)}
       </div>
     )
   }

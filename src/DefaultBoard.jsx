@@ -10,8 +10,9 @@ import Display from './Display'
 class DefaultBoard extends React.Component {
   constructor (props) {
     super(props)
+    const message = this.props.match.params.id === 'default' ? 'Choose a category' : 'Choose a word'
     this.state = {
-      message: "Choose a category"
+      message: message
     }
     this.showMessage = this.showMessage.bind(this)
   }
@@ -25,8 +26,8 @@ class DefaultBoard extends React.Component {
   render() {
     return (
       <div className="App">
-        <Display message={this.state.message}/>
-        <Buttons showMessage={this.showMessage}/>
+        <Display message={this.state.message} />
+        <Buttons showMessage={this.showMessage} id={this.props.match.params.id} />
       </div>
     )
   }
