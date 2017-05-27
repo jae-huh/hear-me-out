@@ -24,6 +24,7 @@ class AddBoard extends React.Component {
     this.onButtonChange = this.onButtonChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
     this.addButton = this.addButton.bind(this)
+    this.upload = this.upload.bind(this)
   }
 
   setBoardName(e) {
@@ -79,6 +80,29 @@ class AddBoard extends React.Component {
     })
   }
 
+  upload(e, i) {
+    console.log(e.target.files[0])
+    const fileReader = new FileReader()
+
+    const uploadToServer = () => {
+      console.log(fileReader.result)
+      const header = new Headers({'Content-Type': 'application/json'})
+      fetch(`${baseUrl}/upload`, {
+        headers: header,
+        method: 'post',
+        body: JSON.stringify({
+          fileName: 'random',
+          data: fileReader.result,
+        })
+      })
+        .then(result => result.json())
+        .then(data => console.log(data))
+    }
+
+    fileReader.readAsDataURL(e.target.files[0])
+    fileReader.onload = uploadToServer
+  }
+
   render(){
     console.log(this.state)
     return(
@@ -94,6 +118,7 @@ class AddBoard extends React.Component {
               <div className="create-button" key={i}>
                 <input className="button-input" type="text" name="word" placeholder="Word" onChange={(e) =>  this.onButtonChange(e, i)} /><br />
                 <input className="button-input" type="text" name="imgUrl" placeholder="Image url" onChange={(e) => this.onButtonChange(e, i)} /><br />
+                <input type="file" onChange={(e, i) => this.upload(e, i)} />
               </div>
             ))}
           </div>
