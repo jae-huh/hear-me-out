@@ -9,16 +9,54 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 40%;
+}
+
+.add-board-main > input {
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 3px;
+  font-size: 1em;
 }
 
 .new-buttons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  margin: 1em;
+  justify-content: center;
+  /*margin: 0.5em;*/
+  width: 100%;
 }
 
 .create-button {
   margin: 1em;
-  width: 25%;
+  padding: 0.5em 1em;
+  width: 30%;
+  background-color: #D8D8D8;
+  border-radius: 10px;
+}
+
+.button-input {
+  width: 95%;
+  padding: 2px;
+  margin: 1px;
+}
+
+@media (min-width: 760px) {
+  .add-board-main {
+    width: 20%;
+  }
+
+  .new-buttons {
+    justify-content: flex-start;
+    width: 90%;
+  }
+
+  .create-button {
+    width: 25%;
+  }
+
+  .button-input {
+    width: 90%;
+  }
+
 }

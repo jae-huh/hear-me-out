@@ -31,7 +31,7 @@ class TextField extends React.Component {
       <div className="text-field">
         <Display message={'Text to Voice'} />
         <div className="text-field-main">
-          <textarea rows="8" cols="50" placeholder="Type your message here" value={this.state.textContent} onChange={this.handleChange}></textarea>
+          <textarea rows="8" cols="50" placeholder="Type your message here. Press the icon below to hear your message." value={this.state.textContent} onChange={this.handleChange}></textarea>
           <div className="speak-img">
             <img src="/images/speak.png" alt="speak" onClick={this.speak} />
           </div>

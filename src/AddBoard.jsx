@@ -102,6 +102,7 @@ class AddBoard extends React.Component {
     fileReader.readAsDataURL(e.target.files[0])
     fileReader.onload = uploadToServer
   }
+  
 
   render(){
     console.log(this.state)
@@ -110,7 +111,7 @@ class AddBoard extends React.Component {
         <Display message={'Create a Board'} />
         <form onSubmit={this.onSubmit} className="add-button-form">
           <div className="add-board-main">
-            <input type="text" name="boardName" placeholder="Enter the name of the new board" onChange={this.setBoardName} /><br />
+            <input type="text" name="boardName" placeholder="Name of the new board" onChange={this.setBoardName} /><br />
             <button onClick={this.addButton}>Add a button</button>
           </div>
           <div className="new-buttons">
