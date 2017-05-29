@@ -15,6 +15,7 @@ class AddBoard extends React.Component {
         {
           word: '',
           imgUrl: '',
+          imgData: '',
           type: 'category-item'
         },
       ]
@@ -25,6 +26,7 @@ class AddBoard extends React.Component {
     this.onSubmit = this.onSubmit.bind(this)
     this.addButton = this.addButton.bind(this)
     this.upload = this.upload.bind(this)
+    this.saveImage = this.saveImage.bind(this)
   }
 
   setBoardName(e) {
@@ -102,7 +104,26 @@ class AddBoard extends React.Component {
     fileReader.readAsDataURL(e.target.files[0])
     fileReader.onload = uploadToServer
   }
-  
+
+  saveImage() {
+    console.log(e.target.files[0])
+    const fileReader = new FileReader()
+
+    const savetoState = () => {
+      const buttons = [...this.state.buttons]
+      buttons[i] = {
+        ...buttons[i],
+        [imgData]: fileReader.result
+      }
+
+      this.setState({
+        buttons: buttons,
+      })
+    }
+
+    fileReader.readAsDataURL(e.target.files[0])
+    fileReader.onload = savetoState
+  }
 
   render(){
     console.log(this.state)
@@ -119,7 +140,7 @@ class AddBoard extends React.Component {
               <div className="create-button" key={i}>
                 <input className="button-input" type="text" name="word" placeholder="Word" onChange={(e) =>  this.onButtonChange(e, i)} /><br />
                 <input className="button-input" type="text" name="imgUrl" placeholder="Image url" onChange={(e) => this.onButtonChange(e, i)} /><br />
-                <input type="file" onChange={(e, i) => this.upload(e, i)} />
+                <input type="file" onChange={(e, i) => this.saveImage(e, i)} />
               </div>
             ))}
           </div>
