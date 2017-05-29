@@ -30,6 +30,10 @@
 
 }
 
+.home-options:hover {
+  background-color: #4ECDC4;
+}
+
 
 @media (min-width: 760px) {
   .home-options {

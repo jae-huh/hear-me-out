@@ -105,7 +105,7 @@ class AddBoard extends React.Component {
     fileReader.onload = uploadToServer
   }
 
-  saveImage() {
+  saveImage(e, i) {
     console.log(e.target.files[0])
     const fileReader = new FileReader()
 
@@ -113,7 +113,7 @@ class AddBoard extends React.Component {
       const buttons = [...this.state.buttons]
       buttons[i] = {
         ...buttons[i],
-        [imgData]: fileReader.result
+        imgData: fileReader.result
       }
 
       this.setState({

@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { baseUrl } from './api'
 
+import './CustomisedBoards.css'
+
 import Display from './Display'
 
 class CustomisedBoard extends React.Component {
@@ -28,9 +30,9 @@ class CustomisedBoard extends React.Component {
     return (
       <div>
         <Display message={'Choose a board'} />
-        <div>
+        <div className="custom-boards">
           {this.state.customBoards.map((board, i) => {
-            return <Link to={`/boards/${board.id}`} key={i}><div>{board.name}</div></Link>
+            return <Link to={`/boards/${board.id}`} className="custom-board-link" key={i}><div className="custom-board">{board.name}</div></Link>
           })}
         </div>
       </div>
