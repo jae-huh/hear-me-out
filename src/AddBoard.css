@@ -41,6 +41,16 @@
   margin: 1px;
 }
 
+.delete-button-container {
+  width: 100%;
+  text-align: right;
+}
+
+.delete-button {
+  /*display: flex;
+  flex-direction: row-reverse;*/
+}
+
 @media (min-width: 760px) {
   .add-board-main {
     width: 20%;

@@ -13,6 +13,7 @@ class AddBoard extends React.Component {
       description: '',
       buttons: [
         {
+          id: Math.random(),
           word: '',
           imgUrl: '',
           imgData: '',
@@ -27,6 +28,7 @@ class AddBoard extends React.Component {
     this.addButton = this.addButton.bind(this)
     this.upload = this.upload.bind(this)
     this.addImgUrl = this.addImgUrl.bind(this)
+    this.deleteButton = this.deleteButton.bind(this)
   }
 
   setBoardName(e) {
@@ -38,13 +40,11 @@ class AddBoard extends React.Component {
   onButtonChange(e, i) {
     const name = e.target.name
     const value = e.target.value
-
     const buttons = [...this.state.buttons]
     buttons[i] = {
       ...buttons[i],
       [name]: value
     }
-
     this.setState({
       buttons: buttons,
     })
@@ -61,18 +61,23 @@ class AddBoard extends React.Component {
       })
     })
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => {
+        console.log(data)
+        location.href = `/#/boards/${data.data.name}/`
+      })
   }
 
   onSubmit(e) {
     e.preventDefault()
     this.makeBoard()
+
   }
 
   addButton(e) {
     e.preventDefault()
     const buttons = [...this.state.buttons]
     buttons.push({
+      id: Math.random(),
       word: '',
       imgUrl: '',
       type: 'category-item'
@@ -85,7 +90,6 @@ class AddBoard extends React.Component {
   upload(e, i) {
     console.log(e.target.files[0])
     const fileReader = new FileReader()
-
     const uploadToServer = () => {
       console.log(fileReader.result)
       const header = new Headers({'Content-Type': 'application/json'})
@@ -99,9 +103,7 @@ class AddBoard extends React.Component {
       })
         .then(result => result.json())
         .then(data => this.addImgUrl(data, i))
-
     }
-
     fileReader.readAsDataURL(e.target.files[0])
     fileReader.onload = uploadToServer
   }
@@ -115,8 +117,18 @@ class AddBoard extends React.Component {
     })
   }
 
+  deleteButton(e) {
+    e.preventDefault()
+    const buttonId = e.target.dataset.buttonid
+    const buttons = [...this.state.buttons]
+    buttons.splice(buttonId, 1)
+    this.setState({
+      buttons: buttons
+    })
+  }
+
   render(){
-    console.log(this.state)
+    // console.log(this.state)
     return(
       <div className="add-board">
         <Display message={'Create a Board'} />
@@ -127,9 +139,12 @@ class AddBoard extends React.Component {
           </div>
           <div className="new-buttons">
             {this.state.buttons.map((item, i) => (
-              <div className="create-button" key={i}>
+              <div className="create-button" key={item.id}>
+                <div className="delete-button-container">
+                  <button className="delete-button" onClick={this.deleteButton} data-buttonid={i}>x</button>
+                </div>
                 {item.imgUrl && <img src={item.imgUrl} alt="button" style={{ maxWidth: '100%', maxHeight: '150px'}}/> }
-                <input className="button-input" type="text" name="word" placeholder="Word" onChange={(e) =>  this.onButtonChange(e, i)} /><br />
+                <input className="button-input" type="text" name="word" placeholder="Word" onChange={(e) =>  this.onButtonChange(e, i)} value={item.word}/><br />
                 <input className="button-input" type="text" name="imgUrl" placeholder="Image url" value={item.imgUrl} onChange={(e) => this.onButtonChange(e, i)} /><br />
                 <input type="file" accept="image/*" onChange={(e) => this.upload(e, i)} />
               </div>
