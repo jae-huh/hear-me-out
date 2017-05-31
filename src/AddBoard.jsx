@@ -13,7 +13,7 @@ class AddBoard extends React.Component {
       description: '',
       buttons: [
         {
-          id: Math.random(),
+          buttonId: Math.floor(Math.random()*10000000),
           word: '',
           imgUrl: '',
           imgData: '',
@@ -77,7 +77,7 @@ class AddBoard extends React.Component {
     e.preventDefault()
     const buttons = [...this.state.buttons]
     buttons.push({
-      id: Math.random(),
+      buttonId: Math.floor(Math.random()*10000000),
       word: '',
       imgUrl: '',
       type: 'category-item'
@@ -88,10 +88,9 @@ class AddBoard extends React.Component {
   }
 
   upload(e, i) {
-    console.log(e.target.files[0])
     const fileReader = new FileReader()
     const uploadToServer = () => {
-      console.log(fileReader.result)
+      // console.log(fileReader.result)
       const header = new Headers({'Content-Type': 'application/json'})
       fetch(`${baseUrl}/upload`, {
         headers: header,
@@ -110,7 +109,6 @@ class AddBoard extends React.Component {
 
   addImgUrl(imgUrl, id) {
     const buttons = [...this.state.buttons]
-    console.log(buttons, id)
     buttons[id].imgUrl = imgUrl
     this.setState({
       buttons: buttons
@@ -119,9 +117,9 @@ class AddBoard extends React.Component {
 
   deleteButton(e) {
     e.preventDefault()
-    const buttonId = e.target.dataset.buttonid
+    const buttonIndex = e.target.dataset.buttonindex
     const buttons = [...this.state.buttons]
-    buttons.splice(buttonId, 1)
+    buttons.splice(buttonIndex, 1)
     this.setState({
       buttons: buttons
     })
@@ -141,9 +139,9 @@ class AddBoard extends React.Component {
           </div>
           <div className="new-buttons">
             {this.state.buttons.map((item, i) => (
-              <div className="create-button" key={item.id}>
+              <div className="create-button" key={item.buttonId}>
                 <div className="delete-button-container">
-                  <span className="delete-button" onClick={this.deleteButton} data-buttonid={i}>&#8855;</span>
+                  <span className="delete-button" onClick={this.deleteButton} data-buttonindex={i}>&#8855;</span>
                 </div>
                 {item.imgUrl && <img src={item.imgUrl} alt="button" style={{ maxWidth: '100%', maxHeight: '150px'}}/> }
                 <input className="button-input" type="text" name="word" placeholder="Word" onChange={(e) =>  this.onButtonChange(e, i)} value={item.word}/><br />

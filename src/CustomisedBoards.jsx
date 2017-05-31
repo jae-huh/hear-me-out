@@ -22,7 +22,7 @@ class CustomisedBoard extends React.Component {
       .then((data) => {
         this.setState({
           customBoards: data
-        }, console.log(data))
+        })
       })
   }
 

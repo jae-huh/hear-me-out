@@ -17,7 +17,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "now && now alias",
-    "now-start": "serve build"
+    "now-start": "serve build -s"
   },
   "now": {
     "alias": "hearmeout"
