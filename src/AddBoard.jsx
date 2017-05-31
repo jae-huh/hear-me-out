@@ -62,7 +62,6 @@ class AddBoard extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         location.href = `/#/boards/${data.data.name}/`
       })
   }
@@ -90,7 +89,6 @@ class AddBoard extends React.Component {
   upload(e, i) {
     const fileReader = new FileReader()
     const uploadToServer = () => {
-      // console.log(fileReader.result)
       const header = new Headers({'Content-Type': 'application/json'})
       fetch(`${baseUrl}/upload`, {
         headers: header,
