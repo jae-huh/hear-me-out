@@ -134,14 +134,16 @@ class AddBoard extends React.Component {
         <Display message={'Create a Board'} />
         <form onSubmit={this.onSubmit} className="add-button-form">
           <div className="add-board-main">
-            <input type="text" name="boardName" placeholder="Name of the new board" onChange={this.setBoardName} /><br />
-            <button onClick={this.addButton}>Add a button</button>
+            <div className="board-name-container">
+              <input type="text" name="boardName" placeholder="Name of the new board" onChange={this.setBoardName} /><br />
+            </div>
+            <button className="add-button" onClick={this.addButton}>Add a button</button>
           </div>
           <div className="new-buttons">
             {this.state.buttons.map((item, i) => (
               <div className="create-button" key={item.id}>
                 <div className="delete-button-container">
-                  <button className="delete-button" onClick={this.deleteButton} data-buttonid={i}>x</button>
+                  <span className="delete-button" onClick={this.deleteButton} data-buttonid={i}>&#8855;</span>
                 </div>
                 {item.imgUrl && <img src={item.imgUrl} alt="button" style={{ maxWidth: '100%', maxHeight: '150px'}}/> }
                 <input className="button-input" type="text" name="word" placeholder="Word" onChange={(e) =>  this.onButtonChange(e, i)} value={item.word}/><br />
@@ -150,7 +152,7 @@ class AddBoard extends React.Component {
               </div>
             ))}
           </div>
-          <input type="submit" name="submit" value="Make a board" />
+          <input className="make-button" type="submit" name="submit" value="Make a board" />
         </form>
       </div>
     )

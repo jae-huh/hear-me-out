@@ -12,12 +12,49 @@
   width: 40%;
 }
 
-.add-board-main > input {
-  width: 100%;
+.board-name-container > input {
+  width: 96%;
   margin-bottom: 1em;
   padding: 3px;
   font-size: 1em;
 }
+
+.board-name-container {
+  width: 100%;
+  background-color: #CDE5F5;
+  padding: 1em 1em 0 1em;
+  margin-bottom: 1em;
+  border-radius: 10px;
+}
+
+.add-button {
+  background-color:#e4685d;
+  cursor: pointer;
+  border-radius:10px;
+  color:#ffffff;
+  /*font-weight: bold;*/
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  padding: 0.3em 0.7em;
+}
+
+.make-button {
+  background-color:#e4685d;
+  cursor: pointer;
+  border-radius:10px;
+  color:#ffffff;
+  font-weight: bold;
+  font-size: 1.3em;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5em 1em;
+}
+
+.add-button:hover, .make-button:hover {
+	background-color: #d95246;
+}
+
 
 .new-buttons {
   display: flex;
@@ -28,7 +65,7 @@
 
 .create-button {
   margin: 1em;
-  padding: 0.5em 1em;
+  padding: 0 1em 0.5em 1em;
   width: 30%;
   background-color: #CDE5F5;
   border-radius: 10px;
@@ -38,7 +75,7 @@
 .button-input {
   width: 95%;
   padding: 2px;
-  margin: 1px;
+  margin-bottom: 4px;
 }
 
 .delete-button-container {
@@ -47,8 +84,12 @@
 }
 
 .delete-button {
-  /*display: flex;
-  flex-direction: row-reverse;*/
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  color: darkred;
 }
 
 @media (min-width: 760px) {
