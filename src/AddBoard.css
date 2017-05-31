@@ -23,7 +23,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /*margin: 0.5em;*/
   width: 100%;
 }
 
@@ -31,8 +30,9 @@
   margin: 1em;
   padding: 0.5em 1em;
   width: 30%;
-  background-color: #D8D8D8;
+  background-color: #CDE5F5;
   border-radius: 10px;
+  text-align: center;
 }
 
 .button-input {

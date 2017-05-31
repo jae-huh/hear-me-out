@@ -10,7 +10,7 @@
 
 .home-links {
   text-decoration: none;
-  color: #292F36;
+  color: #FFE66D;
   font-size: 1.5em;
   font-weight: bold;
   width: 70%;
@@ -26,12 +26,13 @@
   margin: 0.5em 0;
   padding: 1em 0;
   border-radius: 20px;
-  background-color: #fb9999;
+  background-color: #1A535C;
 
 }
 
 .home-options:hover {
-  background-color: #4ECDC4;
+  background-color: #FFE66D;
+  color: #1A535C;
 }
 
 

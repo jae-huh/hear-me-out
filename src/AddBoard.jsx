@@ -26,7 +26,7 @@ class AddBoard extends React.Component {
     this.onSubmit = this.onSubmit.bind(this)
     this.addButton = this.addButton.bind(this)
     this.upload = this.upload.bind(this)
-    this.saveImage = this.saveImage.bind(this)
+    this.addImgUrl = this.addImgUrl.bind(this)
   }
 
   setBoardName(e) {
@@ -75,7 +75,7 @@ class AddBoard extends React.Component {
     buttons.push({
       word: '',
       imgUrl: '',
-      type: 'category'
+      type: 'category-item'
     })
     this.setState({
       buttons: buttons
@@ -98,31 +98,21 @@ class AddBoard extends React.Component {
         })
       })
         .then(result => result.json())
-        .then(data => console.log(data))
+        .then(data => this.addImgUrl(data, i))
+
     }
 
     fileReader.readAsDataURL(e.target.files[0])
     fileReader.onload = uploadToServer
   }
 
-  saveImage(e, i) {
-    console.log(e.target.files[0])
-    const fileReader = new FileReader()
-
-    const savetoState = () => {
-      const buttons = [...this.state.buttons]
-      buttons[i] = {
-        ...buttons[i],
-        imgData: fileReader.result
-      }
-
-      this.setState({
-        buttons: buttons,
-      })
-    }
-
-    fileReader.readAsDataURL(e.target.files[0])
-    fileReader.onload = savetoState
+  addImgUrl(imgUrl, id) {
+    const buttons = [...this.state.buttons]
+    console.log(buttons, id)
+    buttons[id].imgUrl = imgUrl
+    this.setState({
+      buttons: buttons
+    })
   }
 
   render(){
@@ -138,9 +128,10 @@ class AddBoard extends React.Component {
           <div className="new-buttons">
             {this.state.buttons.map((item, i) => (
               <div className="create-button" key={i}>
+                {item.imgUrl && <img src={item.imgUrl} alt="button" style={{ maxWidth: '100%', maxHeight: '150px'}}/> }
                 <input className="button-input" type="text" name="word" placeholder="Word" onChange={(e) =>  this.onButtonChange(e, i)} /><br />
-                <input className="button-input" type="text" name="imgUrl" placeholder="Image url" onChange={(e) => this.onButtonChange(e, i)} /><br />
-                <input type="file" onChange={(e, i) => this.saveImage(e, i)} />
+                <input className="button-input" type="text" name="imgUrl" placeholder="Image url" value={item.imgUrl} onChange={(e) => this.onButtonChange(e, i)} /><br />
+                <input type="file" accept="image/*" onChange={(e) => this.upload(e, i)} />
               </div>
             ))}
           </div>

@@ -29,7 +29,7 @@ class CustomisedBoard extends React.Component {
   render () {
     return (
       <div>
-        <Display message={'Choose a board'} />
+        <Display message={'Customised Boards'} />
         <div className="custom-boards">
           {this.state.customBoards.map((board, i) => {
             return <Link to={`/boards/${board.id}`} className="custom-board-link" key={i}><div className="custom-board">{board.name}</div></Link>
