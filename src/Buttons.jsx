@@ -18,20 +18,6 @@ class Buttons extends React.Component {
     this.placeBackBtn = this.placeBackBtn.bind(this)
   }
 
-  // componentWillMount() {
-  //   fetch(baseUrl + '/boards/default')
-  //     .then((res) => {
-  //       // console.log(res)
-  //       return res.json()
-  //     })
-  //     .then((data) => {
-  //       this.setState({
-  //         data: data,
-  //         displayData: data
-  //       })
-  //     })
-  // }
-
   componentWillMount() {
     // console.log(this.props)
     const id = this.props.id
