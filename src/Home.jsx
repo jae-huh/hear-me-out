@@ -15,6 +15,9 @@ const Home = () => {
         <Link to='/add-board' className="home-links"><div className="home-options">Create a Board</div></Link>
         <Link to='/text-field' className="home-links"><div className="home-options">Text to Voice</div></Link>
       </div>
+      <div className="additional-info">
+        <Link to='/credits' className="credits-link"><p>credits</p></Link>
+      </div>
     </div>
   )
 }

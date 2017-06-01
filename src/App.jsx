@@ -7,6 +7,7 @@ import DefaultBoard from './DefaultBoard'
 import CustomisedBoards from './CustomisedBoards'
 import TextField from './TextField'
 import AddBoard from './AddBoard'
+import Credits from './Credits'
 
 const App = (props) => {
   return (
@@ -18,6 +19,7 @@ const App = (props) => {
         <Route path="/customised-boards" component={CustomisedBoards} />
         <Route path="/text-field" component={TextField} />
         <Route path="/add-board" component={AddBoard} />
+        <Route path="/credits" component={Credits} />
       </div>
     </Router>
   )

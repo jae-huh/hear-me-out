@@ -1,0 +1,10 @@
+.credits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.icon-credit {
+  margin: 0.5em;
+}

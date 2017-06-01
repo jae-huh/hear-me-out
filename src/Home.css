@@ -45,6 +45,16 @@
   cursor: pointer
 }
 
+.additional-info {
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;
+}
+
+.credits-link {
+  margin: 0 2em;
+}
+
 
 @media (min-width: 760px) {
   .home-menu-container {
