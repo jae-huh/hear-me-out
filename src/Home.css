@@ -25,6 +25,10 @@
   width: 70%;
 }
 
+.home-links:hover {
+  cursor: default;
+}
+
 .home-options {
   display: flex;
   justify-content: center;
@@ -38,6 +42,7 @@
 .home-options:hover {
   background-color: #FFE66D;
   color: #1A535C;
+  cursor: pointer
 }
 
 
