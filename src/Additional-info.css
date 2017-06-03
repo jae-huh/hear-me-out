@@ -1,8 +1,12 @@
-.credits {
+.additional-info-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
+}
+
+.about-app {
+
 }
 
 .icon-credit {

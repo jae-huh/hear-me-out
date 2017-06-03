@@ -16,7 +16,8 @@ const Home = () => {
         <Link to='/text-field' className="home-links"><div className="home-options">Text to Voice</div></Link>
       </div>
       <div className="additional-info">
-        <Link to='/credits' className="credits-link"><p>credits</p></Link>
+        <Link to='/about' className="additional-info-link"><p>about</p></Link>
+        <Link to='/credits' className="additional-info-link"><p>credits</p></Link>
       </div>
     </div>
   )

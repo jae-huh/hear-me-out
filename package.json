@@ -20,6 +20,6 @@
     "now-start": "serve build -s"
   },
   "now": {
-    "alias": "hearmeout"
+    "alias": "hearmeout.nz"
   }
 }
