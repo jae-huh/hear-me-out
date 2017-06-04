@@ -10,7 +10,7 @@ const About = (props) => {
       <Display message={'About'} />
       <div className="additional-info-container">
         <div className="about-app">
-          <p>Contents coming soon...</p>
+          <p>GitHub Repository for this project: <a href="https://github.com/Jae-Huh/hear-me-out" target="blank">https://github.com/Jae-Huh/hear-me-out</a></p>
         </div>
       </div>
     </div>
