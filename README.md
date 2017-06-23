@@ -15,7 +15,7 @@ git clone https://github.com/Jae-Huh/hear-me-out-server
 npm install
 npm start
 ```
-Then, open new terminal tab.
+Then, open a new terminal tab.
 
 ```
 git clone https://github.com/Jae-Huh/hear-me-out
