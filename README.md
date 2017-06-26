@@ -12,6 +12,7 @@ Deployed at https://hearmeout.nz/
 In order to run this project, you also need to clone down [hear-me-out-server](https://github.com/Jae-Huh/hear-me-out-server) files.
 ```
 git clone https://github.com/Jae-Huh/hear-me-out-server
+cd hear-me-out-server
 npm install
 npm start
 ```
@@ -19,6 +20,7 @@ Then, open a new terminal tab.
 
 ```
 git clone https://github.com/Jae-Huh/hear-me-out
+cd hear-me-out
 npm install
 npm start
 ```
