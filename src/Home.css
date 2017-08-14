@@ -53,6 +53,23 @@
 
 .additional-info-link {
   margin: 0 2em;
+  background-color: #FFE66D;
+  color: #1A535C;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.additional-info-link > p {
+  margin: 0;
+}
+
+.additional-info-link:hover {
+  color: #FFE66D;
+  background-color: #1A535C;
 }
 
 
