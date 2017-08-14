@@ -5,8 +5,14 @@
 
 }
 
-.about-app {
-
+.about-app, .credits {
+  padding: 2em;
+  margin: 1.5em;
+  background-color: #c6f6cb;
+  border-radius: 20px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
 }
 
 .icon-credit {

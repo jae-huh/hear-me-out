@@ -10,7 +10,12 @@ const About = (props) => {
       <Display message={'About'} />
       <div className="additional-info-container">
         <div className="about-app">
-          <p>GitHub Repository for this project: <a href="https://github.com/Jae-Huh/hear-me-out" target="blank">https://github.com/Jae-Huh/hear-me-out</a></p>
+          <p>
+            Hear Me Out was made for patients who are experiencing difficulties in communicating.
+          </p>
+          <p>
+            It is an open-source project, and can be found at <a href="https://github.com/Jae-Huh/hear-me-out" target="blank">https://github.com/Jae-Huh/hear-me-out</a>
+          </p>
         </div>
       </div>
     </div>
