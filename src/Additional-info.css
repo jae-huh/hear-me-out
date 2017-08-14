@@ -6,15 +6,24 @@
 }
 
 .about-app, .credits {
-  padding: 2em;
+  padding: 2em 3em;
   margin: 1.5em;
   background-color: #c6f6cb;
   border-radius: 20px;
-  font-weight: bold;
   display: flex;
   flex-direction: column;
 }
 
+.credits {
+  text-align: center;
+}
+
 .icon-credit {
   margin: 0.5em;
+}
+
+@media (min-width: 760px) {
+  .about-app, .credits {
+    width: 70%;
+  }
 }
